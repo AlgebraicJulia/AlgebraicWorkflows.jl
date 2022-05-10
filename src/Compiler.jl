@@ -47,7 +47,13 @@ module Compiler
 	    end
 	    out_port_vals[incident(diag, b, :out_port_box)] .= outputs
 	  end
-	  box_vals[execution_order], out_port_vals
+	  out_vals = map(parts(wd.diagram, :OuterOutPort)) do op
+	    owires = incident(wd.diagram, op, :out_tgt)
+	    owire = length(owires) == 1 || error("Output port $op does not have a single input wire.")
+	    owire = only(owires)
+	    out_port_vals[wd.diagram[owire, :out_src]]
+	  end
+	  box_vals[execution_order], out_vals
 	end
 
   """ execute(wd::WiringDiagram, boxes::Dict{Any, Function}, inputs::Vector; kw...)
@@ -59,11 +65,6 @@ module Compiler
 	function execute(wd::WiringDiagram, boxes::Dict{<:Any, <:Function}, inputs::Vector; kw...)
 	  exec_box(wd, b, inputs) = boxes[wd.diagram[b, :value]](inputs...)
 	  _, out_port_vals = compile(wd, exec_box, inputs; track_boxes=false, kw...)
-	  map(parts(wd.diagram, :OuterOutPort)) do op
-	    owires = incident(wd.diagram, op, :out_tgt)
-	    owire = length(owires) == 1 || error("Output port $op does not have a single input wire.")
-	    owire = only(owires)
-	    out_port_vals[wd.diagram[owire, :out_src]]
-	  end
+    out_port_vals
 	end
 end
