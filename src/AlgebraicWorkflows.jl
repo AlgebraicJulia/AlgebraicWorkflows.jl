@@ -2,6 +2,9 @@ module AlgebraicWorkflows
 using Reexport
 
 include("Compiler.jl")
-@reexport using .Compiler
+include("Workflows.jl")
 
-end # module
+@reexport using .Compiler
+@reexport using .Workflows
+
+end

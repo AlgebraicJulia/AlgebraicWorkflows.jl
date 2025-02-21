@@ -1,12 +1,9 @@
-using DataFrames, Query
-using Plots
 using AlgebraicWorkflows
 using Catlab
-using Catlab.Theories
-using Catlab.Present
-using Catlab.CategoricalAlgebra
-using Catlab.Programs
-using Catlab.Graphics
+
+using DataFrames
+using Query
+using Plots
 
 ids = rand(1:100000, 100)
 ages = rand(1:100, 100)
