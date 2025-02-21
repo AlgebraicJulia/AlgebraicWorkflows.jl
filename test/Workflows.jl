@@ -1,4 +1,5 @@
 using AlgebraicWorkflows
+
 using Test
 
 @testset "Simple Math" begin

@@ -1,11 +1,7 @@
 using AlgebraicWorkflows
-using Test
 using Catlab
-using Catlab.Theories
-using Catlab.Present
-using Catlab.CategoricalAlgebra
-using Catlab.Programs
-using Catlab.Graphics
+
+using Test
 
 @testset "Simple Math" begin
   @present SimpleMath(FreeSymmetricMonoidalCategory) begin

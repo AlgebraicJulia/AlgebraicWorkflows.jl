@@ -1,10 +1,5 @@
 using AlgebraicWorkflows
 using Catlab
-using Catlab.Theories
-using Catlab.Present
-using Catlab.CategoricalAlgebra
-using Catlab.Programs
-using Catlab.Graphics
 
 @present SimpleMath(FreeSymmetricMonoidalCategory) begin
   Val::Ob
