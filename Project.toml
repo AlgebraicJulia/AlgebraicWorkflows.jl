@@ -8,6 +8,9 @@ Catlab = "134e5e36-593f-5add-ad60-77f754baafbe"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
+[compat]
+Reexport = "1"
+
 [extras]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Query = "1a8c2f83-1ff3-5112-b086-8aa67b057ba1"
